@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<title>Geolocation</title>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src *;
+    style-src * 'unsafe-inline'; 
+    script-src * 'unsafe-inline'; 
+" />
+
+<script src="jquery-1.11.3.min.js"></script>
+<script src="jquery.mobile-1.4.5.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+<script type="text/javascript" src='cordova.js'></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Condensed|Passion+One" rel="stylesheet">
+
+<style type="text/css">
+#content{
+  padding:0;
+  position:absolute;
+  top:105px;
+  right:0;
+  bottom:0px;
+  left:0;
+  background-color:'green';
+}
+
+#map-canvas{
+  height:70%;
+}
+
+#pageone{
+  text-align: center;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+</style>
+
+
+<script>
+document.addEventListener('deviceready',onDeviceReady,false);
+function onDeviceReady()
+{
+     //alert('device is ready');
+     navigator.geolocation.getCurrentPosition(onSuccess,onError);
+}
+
+function onSuccess(position)
+{
+    //alert('onsuccess');
+	$('#geoloc').html("<h1>Your position, to the nearest Latitude & Longitude" + "</h1>" + "<p>Latitude: " + position.coords.latitude + "</p>" + "<p>Longitude: " + position.coords.longitude + "</p>");
+     var latlong = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+     var mapProp = {
+            center:latlong,
+            zoom:10,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+     };
+	 
+     var map = new google.maps.Map(document.getElementById('map-canvas'), mapProp);
+	 /* var cck = {lat: 1.393958, lng: 103.748150};
+	 var bb = {lat: 1.360246, lng: 103.752324};
+	 var jurongw = {lat: 1.348061, lng: 103.729493};
+	 var woodlands =  {lat: 1.434103, lng: 103.779790};
+	 var bedok =  {lat: 1.325836, lng: 103.938366};
+	 var yishun =  {lat: 1.411983, lng: 103.831097};
+	 var hougang = {lat: 1.370772, lng: 103.888153}; */
+	 
+	 
+	 var marker1 = new google.maps.Marker({
+		position: latlong,
+		map: map,
+		animation: google.maps.Animation.DROP,
+		title: ' Current Location'
+	 });
+	 
+	 // Info Window
+	marker1.addListener('click',openInfo);
+	var infoWindow = new google.maps.InfoWindow
+	({
+		content: 'Current Location!'
+	});
+	function openInfo() 
+	{
+		infoWindow.open(map,marker1);
+	}
+	var kmlLayer = new google.maps.KmlLayer({
+		url: 'https://raw.githubusercontent.com/aiklang/works/master/EXERCISEFACILITIES.kml',
+		map: map
+	});
+		
+	 
+	/* var marker2 = new google.maps.Marker({
+		position: cck,
+		map: map
+	});	
+	
+	var marker3 = new google.maps.Marker({
+		position: bb,
+		map: map
+	});
+	
+	var marker4 = new google.maps.Marker({
+		position: jurongw,
+		map: map
+	});
+	
+	var marker5 = new google.maps.Marker({
+		position: woodlands,
+		map: map
+	});
+	
+	var marker6 = new google.maps.Marker({
+		position: bedok,
+		map: map
+	});
+	
+	var marker7 = new google.maps.Marker({
+		position: yishun,
+		map: map
+	});
+	
+	var marker8 = new google.maps.Marker({
+		position: hougang,
+		map: map
+	}); */
+	
+}
+
+function onError(error)
+{
+    alert('error getting currentposition');
+}
+
+</script>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header" id="gymhead">
+     <h1 id="pagestart">Locations of <br>Gyms</h1>
+	 <a href='menu.html' date-rel='back' data-ajax='false' style="margin-top: 20px; background-color: red; text-shadow: none;">Back</a>
+  </div>
+  <div data-role="main" class="ui-content" >
+        <div class='container' id="content">		
+			<div id='map-canvas'></div>
+			<div id="geoloc"></div>
+			<div id="pg1cont">
+				<p>Locations of Gyms:</p>
+				<h1>Choa Chu Kang Sports Centre</h1>
+				<p>Lat: 1.391050, Lon: 103.748161</p>
+				
+				<h1>Bukit Batok West Ave 5</h1>
+				<p>Lat: 1.360246, Lon: 103.752324</p>
+				
+				<h1>20 Jurong West Street 93 </h1>
+				<p>Lat: 1.337742, Lon: 103.694317</p>
+				
+				<h1>2 Woodlands Street 12</h1>
+				<p>Lat: 1.434103, Lon: 103.779790</p>
+				
+				<h1>5 Bedok North Street 2</h1>
+				<p>Lat: 1.325836, Lon: 103.938366</p>
+				
+				<h1>101 Yishun Avenue 1</h1>
+				<p>Lat: 1.411983, Lon: 103.831097</p>
+				
+				<h1>93 Hougang Ave 4</h1>
+				<p>Lat: 1.370772, Lon: 103.888153</p>
+			</div>
+		</div>
+  </div>
+ </div>
+
+
+
+
+</body>
+</html>
+
+
+
+

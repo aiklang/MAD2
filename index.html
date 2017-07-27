@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<title>GymPal</title>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="styles.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script src="jquery.mobile-1.4.5.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Condensed|Passion+One" rel="stylesheet">
+
+<script>
+$(document).on("pagecreate","#pageone",function(){
+console.log('test');
+});
+</script>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header" id="gymhead">
+     <h1>GymPal</h1>
+  </div>
+
+  <div data-role="main" class="ui-content" id="pg1cont">
+      <h1 style="color: red; font-size: 20px;">Welcome to GymPal!</h1>
+		 <p>Hello there, fellow gym enthusiast!</p> 
+		 <p>Ever wanted a perfect local companion app that shows the locations of Gyms in Singapore and more?</p>
+		 <p>GymPal is perfect for you! Not only would you be able to locate gyms in Singapore, but additionally, you can also find out additonal information related to Gymming, such as Body
+		     Types and also various workouts!</p> 
+	  <p>What are you waiting for? Start your journey below!</p>
+	  <a href="menu.html" class="ui-btn" data-ajax="false">Start</a>
+	 
+  </div>
+</div> 
+
+</body>
+</html>

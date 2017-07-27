@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<title>GymPal</title>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script src="jquery.mobile-1.4.5.js"></script>
+<script type="text/javascript" src='cordova.js'></script>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Condensed|Passion+One" rel="stylesheet">
+
+<script>
+$(document).on("pagecreate","#pagetwo",function(){
+console.log('test2');
+});
+</script>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header" id="gymhead">
+     <h1>GymPal</h1>
+  </div>
+
+  <div data-role="main" class="ui-content" id="pg1cont">
+      <h1 style="color: red; font-size: 25px;">Welcome to GymPal!</h1>
+	  
+	  <p>Bored of always heading to the same gym everytime? In need of a new gym to try, but unsure of where it is located? Click on this button, not only will it find gyms near you, but also, it only shows
+	     gyms that are free, so you get to save money!</p>
+	  <a href="location.html" class="ui-btn" data-ajax="false">Location</a>
+
+	  <p>Want to start gymming and starting to eat healthy? Take this test and find out which body type are you, and find out more about your body type!</p>
+	  <a href="#" class="ui-btn" onclick="window.open('https://www.bodybuilding.com/fun/becker3.htm', '_blank');">Body Type Test</a>
+
+	  <p>Got your body type? Perfect! Click here to know more!</p>
+	  <a href="#pagetwo" class="ui-btn">Next</a>
+
+  </div>
+</div> 
+
+<div data-role="page" id="pagetwo">
+  <div data-role="header" id="gymhead">
+     <h1>GymPal</h1>
+	 <a href='#pageone' date-rel='back' style="margin-top: 20px; background-color: red; text-shadow: none;">Back</a>
+  </div>
+
+  <div data-role="main" class="ui-content" id="typecontent">
+      <h1 style="color: red; font-size: 25px;">What's your Body Type?</h1>
+	  <p>Which category do you fall under? Click on your body type below to know more about nutritions and workouts suitable for you!</p>
+	  <a href="#ecto" class="ui-btn">Ectomorph</a>
+	  <a href="#meso" class="ui-btn">Mesomorph</a>
+	  <a href="#endo" class="ui-btn">Endomorph</a>
+  </div>
+  
+</div>
+
+<div data-role="page" id="ecto">
+  <div data-role="header" id="gymhead">
+     <h1>GymPal</h1>
+	 <a href='#pagetwo' date-rel='back' style="margin-top: 20px; background-color: red; text-shadow: none;">Back</a>
+  </div>
+
+  <div data-role="main" class="ui-content" id="typecontent">
+      <h1 style="color: red; font-size: 25px;">Ectomorph</h1>
+	  <p>"The guy that inhales doughnuts and doesn't gain an ounce. Ectomorphs are your chronically skinny guys - 
+	  they tend to have a slight frame and have very quick metabolism. In general, they have a tough time gaining any sort of mass, whether it's muscle or fat." </br>MensFitness</p>
+	  <p>Curious on how to work with your Body Type? We got you covered! Read all about it down below:</p>
+	  <a href="#" class="ui-btn" onclick="window.open('http://www.mensfitness.com/training/build-muscle/skinny-guy-rules-gaining-muscle', '_blank');">Workouts</a>
+	  <a href="#" class="ui-btn" onclick="window.open('http://www.mensfitness.com/nutrition/what-to-eat/nutrition-rules-for-every-ectomorph', '_blank');">Nutrition</a>
+  </div>
+</div>  
+
+<div data-role="page" id="meso">
+  <div data-role="header" id="gymhead">
+     <h1>GymPal</h1>
+	 <a href='#pagetwo' date-rel='back' style="margin-top: 20px; background-color: red; text-shadow: none;">Back</a>
+  </div>
+
+  <div data-role="main" class="ui-content" id="typecontent">
+      <h1 style="color: red; font-size: 25px;">Mesomorph</h1>
+	  <p>"Mesomorphs could very easily be referred to as 'easy gainers'. Naturally, mesomorphs are muscular, lean, 
+	  and generally more athletic. It doesn't take a lot of work to produce a drastic body makeover." </br>Muscleandfitness</p>
+	  <p>Curious on how to work with your Body Type? We got you covered! Read all about it down below:</p>
+	  <a href="#" class="ui-btn" onclick="window.open('http://www.mensfitness.com/training/cardio/8-amazing-fat-burning-intervals', '_blank');">Workouts</a>
+	  <a href="#" class="ui-btn" onclick="window.open('https://www.acefitness.org/acefit/healthy-living-article/60/5039/how-to-eat-and-train-for-a-mesomorph-body/', '_blank');">Nutrition & More!</a>
+  </div>
+  
+</div>
+
+<div data-role="page" id="endo">
+  <div data-role="header" id="gymhead">
+     <h1>GymPal</h1>
+	 <a href='#pagetwo' date-rel='back' style="margin-top: 20px; background-color: red; text-shadow: none;">Back</a>
+  </div>
+
+  <div data-role="main" class="ui-content" id="typecontent">
+      <h1 style="color: red; font-size: 25px;">Endomorph</h1>
+	  <p>"Endomorphs are often short, stocky guys who gain muscle well but also pack on fat effortlessly. 
+	  They're strong but also tend to carry around a lot of excess weight." </br>MensFitness</p>
+	  <p>Curious on how to work with your Body Type? We got you covered! Read all about it down below:</p>
+	  <a href="#" class="ui-btn" onclick="window.open('http://www.mensfitness.com/training/workout-routines/heavyweight-workout-fitness-and-diet-plan-big-men', '_blank');">Workouts</a>
+	  <a href="#" class="ui-btn" onclick="window.open('http://www.mensfitness.com/nutrition/what-to-eat/9-foods-that-should-be-in-every-diet', '_blank');">Nutrition</a>
+  </div>
+  
+</div>   
+
+</body>
+</html>

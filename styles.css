@@ -1,0 +1,25 @@
+html{
+	text-align: center;
+	
+}
+
+#gymhead{
+	background-color: black;
+	color: white;
+	text-shadow: none;
+	font-family: 'Passion One', cursive;
+	font-size: 30px;
+}
+
+#pageone, #pagetwo, #ecto, #meso, #endo{
+	background-color: grey;
+	color: white;
+	text-shadow: none;
+}
+
+#pg1cont, #typecontent{
+	border-style: solid;
+	border-width: 2px;
+	margin: 15px 15px 0 15px;
+	font-family: 'Cabin Condensed', sans-serif;
+}
